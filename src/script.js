@@ -1,5 +1,5 @@
-function formatDate() {
-  let now = new Date();
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -9,65 +9,22 @@ function formatDate() {
     "Friday",
     "Saturday",
   ];
-  let months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  let hours = [
-    "12",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-    "11",
-    "12",
-    "13",
-    "14",
-    "15",
-    "16",
-    "17",
-    "18",
-    "19",
-    "20",
-    "21",
-    "22",
-    "23",
-  ];
   let day = days[now.getDay()];
-  let month = months[now.getMonth()];
-  let date = now.getDate();
-  let hour = hours[now.getHours()];
-  if (hour < 10) {
-    hour = `0${hour}`;
-  }
-  let minute = now.getMinutes();
-  if (minute < 10) {
-    minute = `0${minute}`;
-  }
-  let today = `${day}, ${month} ${date}, ${hour}:${minute}`;
-
-  return today;
+  return `${day} ${formatHours(timestamp)}`;
 }
 
-let currentDate = document.querySelector("li#todaysDate");
-
-currentDate.innerHTML = formatDate();
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minute < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
+}
 
 function showTemperature(response) {
   document.querySelector("#todayTemp").innerHTML = Math.round(
@@ -79,6 +36,9 @@ function showTemperature(response) {
   document.querySelector("#windData").innerHTML = response.data.wind.speed;
   document.querySelector("#todaysCondition").innerHTML =
     response.data.weather[0].main;
+  document.querySelector("#todaysDate").innerHTML = formatDate(
+    response.data.dt * 1000
+  );
 }
 
 function handleSubmit(event) {
