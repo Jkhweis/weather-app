@@ -48,16 +48,21 @@ function showTemperature(response) {
     );
 }
 
-function handleSubmit(event) {
-  event.preventDefault();
+function search(city) {
   let apiKey = "28f52080b9de7ad64256839acc8afe17";
-  let cityInput = document.querySelector("#enter-city").value;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 }
 
-let search = document.querySelector("#city-button");
-search.addEventListener("click", handleSubmit);
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#inputPassword2");
+  search(cityInput.value);
+}
+search("Chicago");
+
+let citySearch = document.querySelector("#city-button");
+citySearch.addEventListener("click", handleSubmit);
 
 function converttoFahrenheit(event) {
   event.preventDefault();

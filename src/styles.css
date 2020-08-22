@@ -1,42 +1,39 @@
-.weather-app {
-  border: 1px solid #8f9290;
-  padding: 20px;
-  margin: 20px 10px;
-  border-radius: 15px;
-  max-width: 90%;
-  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+body {
+  background-image: url("https://images.pexels.com/photos/1858161/pexels-photo-1858161.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
 }
-.enter-city {
-  position: relative;
-  margin-top: 10px;
-  margin-left: 20px;
-  opacity: 0.9;
+.weather-app {
+  border: 2px solid #65bcdf;
+  padding: 20px;
+  margin: 70px 145px;
+  border-radius: 20px;
+  max-width: 80%;
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
 }
 h1 {
   position: relative;
-  font-size: 42px;
-  margin-top: -40px;
-  margin-left: 275px;
-  color: #c3e6e0;
+  font-family: Alata;
+  font-size: 50px;
+  margin-top: -18px;
+  margin-left: 30px;
+  color: #9fe6e6;
 }
 ul {
   position: relative;
+  columns: 2;
+  font-family: Alata;
   margin: 0;
   padding: 5px;
   font-size: 20px;
+  color: #3bd5f0;
   margin-top: -10px;
-  margin-left: 20px;
+  margin-left: 30px;
   list-style: none;
 }
-.todayEmoji {
-  position: relative;
-}
-.todayEmoji i {
-  font-size: 70px;
-}
 .todayTemp {
-  font-size: 50px;
+  font-size: 60px;
+  color: #9fe6e6;
 }
+
 .weather-temperature .active {
   color: black;
   cursor: default;
@@ -44,49 +41,10 @@ ul {
 .weather-temperature .active:hover {
   text-decoration: none;
 }
-.todays-weather {
-  margin-left: 10px;
-  opacity: 0.8;
+footer {
+  color: #cfd1d1;
 }
-.todays-weather i {
-  color: #171e27;
-  font-size: 70px;
-  padding: 5px;
-}
-.card-day2,
-.card-day3,
-.card-day4,
-.card-day5,
-.card-day6,
-.card-day7 {
-  text-align: center;
-  font-weight: bolder;
-  font-size: 20px;
-  max-width: 100%;
-}
-.card-temp {
-  margin-top: 5px;
-  color: #181717;
-}
-.day2-weather,
-.day3-weather,
-.day4-weather,
-.day5-weather,
-.day6-weather,
-.day7-weather {
-  position: relative;
-  opacity: 0.8;
-}
-.day2-weather i,
-.day3-weather i,
-.day4-weather i,
-.day5-weather i,
-.day6-weather i,
-.day7-weather i {
-  text-align: center;
-  color: #171e27;
-  font-size: 40px;
-}
-.card-day2 {
-  margin-left: 20px;
+
+.float-right {
+  width: 200px;
 }

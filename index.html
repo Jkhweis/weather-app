@@ -10,10 +10,6 @@
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous"
     />
-    <script
-      src="https://kit.fontawesome.com/c5ca5924a2.js"
-      crossorigin="anonymous"
-    ></script>
     <link rel="stylesheet" href="src/styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
@@ -22,30 +18,31 @@
     <div class="container">
       <div class="weather-app">
         <br />
-        <form class="enter-city">
-          <input
-            type="text"
-            id="enter-city"
-            placeholder="Enter city"
-            autocomplete="on"
-          />
-          <input type="submit" id="city-button" value="Search" />
-          <h1></h1>
-          <br />
-          <br />
-        </form>
-
+        
+<form class="form-inline">
+    <div class="form-group mb-2">
+    </div>
+    <div class="form-group mx-sm-4 mb-6">
+        <label for="inputPassword2" class="sr-only">Enter city</label>
+        <input type="search" class="form-control" id="inputPassword2" placeholder="Enter city">
+    </div>
+<input type="submit" class="btn btn-info" id="city-button" value="Search" />
+</form>
+<br />
+    <h1></h1>
         <ul>
           <li class id="todaysDate"></li>
           <li class id="todaysCondition"></li>
+            <li>Humidity: <span id="humidityData"></span>%</li>
+            <li>Wind: <span id="windData"></span> km/hr</li>
         </ul>
         <div class="row">
-          <div class="col-6">
+          <div class="col-8">
             <div class="weather-temperature">
               <img
-                src="http://openweathermap.org/img/wn/03n@2x.png"
+                src=""
                 alt="clear"
-                id="todayIcon"
+                id="todayIcon" class="float-left"
               />
 
               <span class="todayTemp" id="todayTemp"></span
@@ -59,60 +56,9 @@
               >
             </div>
           </div>
-          <div class="col-6">
-            <ul>
-              <li>Precipitation: <span id="precipitationData"></span>%</li>
-              <li>Humidity: <span id="humidityData"></span>%</li>
-              <li>Wind: <span id="windData"></span> km/hr</li>
-            </ul>
             <br />
             <br />
-          </div>
-          <div class="row row-cols-1 row-cols-md-6">
-            <div class="day2-weather">
-              <div class="card-day2">Mon</div>
-              <div class="card-body text-dark">
-                <i class="fas fa-cloud-showers-heavy"></i>
-                <p class="card-temp">19° 12°</p>
-              </div>
-            </div>
-          </div>
-          <div class="day3-weather">
-            <div class="card-day3">Tues</div>
-            <div class="card-body text-dark">
-              <i class="fas fa-cloud-showers-heavy"></i>
-              <p class="card-temp">15° 09°</p>
-            </div>
-          </div>
-          <div class="day4-weather">
-            <div class="card-day4">Wed</div>
-            <div class="card-body text-dark">
-              <i class="fas fa-cloud-sun"></i>
-              <p class="card-temp">20° 14°</p>
-            </div>
-          </div>
-          <div class="day5-weather">
-            <div class="card-day5">Thurs</div>
-            <div class="card-body text-dark">
-              <i class="fas fa-cloud-showers-heavy"></i>
-              <p class="card-temp">19° 12°</p>
-            </div>
-          </div>
-          <div class="day6-weather">
-            <div class="card-day6">Fri</div>
-            <div class="card-body text-dark">
-              <i class="far fa-sun"></i>
-              <p class="card-temp">23° 16°</p>
-            </div>
-          </div>
-          <div class="day6-weather">
-            <div class="card-day7">Sat</div>
-            <div class="card-body text-dark">
-              <i class="far fa-sun"></i>
-              <p class="card-temp">24° 16°</p>
-            </div>
-          </div>
-        </div>
+            <img src="summer_landscape_monochromatic.png" class="float-right" />
         <footer>
           <a href="https://github.com/Jkhweis/weather-app" target="blank"
             >Open Source Code</a
