@@ -37,6 +37,13 @@ ul {
 .todayTemp {
   font-size: 50px;
 }
+.weather-temperature .active {
+  color: black;
+  cursor: default;
+}
+.weather-temperature .active:hover {
+  text-decoration: none;
+}
 .todays-weather {
   margin-left: 10px;
   opacity: 0.8;

@@ -19,16 +19,17 @@ function formatHours(timestamp) {
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  let minutes = now.getMinutes();
-  if (minute < 10) {
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
     minutes = `0${minutes}`;
   }
   return `${hours}:${minutes}`;
 }
 
 function showTemperature(response) {
+  celciusTemperature = response.data.main.temp;
   document.querySelector("#todayTemp").innerHTML = Math.round(
-    response.data.main.temp
+    celciusTemperature
   );
   document.querySelector("h1").innerHTML = response.data.name;
   document.querySelector("#humidityData").innerHTML =
@@ -39,6 +40,12 @@ function showTemperature(response) {
   document.querySelector("#todaysDate").innerHTML = formatDate(
     response.data.dt * 1000
   );
+  document
+    .querySelector("#todayIcon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
 }
 
 function handleSubmit(event) {
@@ -55,17 +62,21 @@ search.addEventListener("click", handleSubmit);
 function converttoFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#todayTemp");
-  let temperature = temperatureElement.innerHTML;
-  temperature = Number(temperature);
-  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
+  celciusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 function converttoCelcius(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#todayTemp");
-  let temperature = temperatureElement.innerHTML;
-  temperatureElement.innerHTML = Math.round(((temperature - 32) * 5) / 9);
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
 }
+
+let celciusTemperature = null;
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", converttoFahrenheit);
